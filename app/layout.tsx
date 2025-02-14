@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Manrope } from 'next/font/google'
-import { ThemeProvider } from '@/components/shared/theme-provider'
+import { ThemeProvider } from '@/components/shared/header/theme-provider'
 
 import './globals.css'
 import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from '@/lib/constants'

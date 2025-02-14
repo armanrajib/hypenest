@@ -10,7 +10,7 @@ import {
   SheetDescription
 } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import { ModeToggle } from '@/components/shared/mode-toggle'
+import { ModeToggle } from '@/components/shared/header/mode-toggle'
 
 const Menu = () => {
   return (

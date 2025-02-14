@@ -1,19 +1,5 @@
 import ProductCard from '@/components/shared/product/product-card'
-
-export type Product = {
-  name: string
-  slug: string
-  category: string
-  description: string
-  images: string[]
-  price: number
-  brand: string
-  rating: number
-  numReviews: number
-  stock: number
-  isFeatured: boolean
-  banner: string | null
-}
+import { Product } from '@/types'
 
 export default function ProductList({
   products,
@@ -32,7 +18,7 @@ export default function ProductList({
 
       {products.length > 0 ? (
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-          {limitedProducts.map(product => (
+          {limitedProducts.map((product: Product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>

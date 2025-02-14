@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { type Product } from '@/components/shared/product/product-list'
+import { Product } from '@/types'
 import ProductPrice from '@/components/shared/product/product-price'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 

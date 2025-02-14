@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { formatNumberWithDecimal } from '@/lib/utils'
 
 export default function ProductPrice({
   price,
@@ -8,7 +9,7 @@ export default function ProductPrice({
   className?: string
 }) {
   // Format price to 2 decimal places
-  const priceString = price.toString(2)
+  const priceString = formatNumberWithDecimal(price)
 
   // Get Integer and Decimal parts
   const [intValue, floatValue] = priceString.split('.')
@@ -17,9 +18,7 @@ export default function ProductPrice({
     <p className={cn('text-2xl', className)}>
       <span className='align-super text-xs'>$</span>
       <span>{intValue}</span>
-      <span className='align-super text-xs'>
-        .{floatValue.length === 1 ? `${floatValue}0` : floatValue}
-      </span>
+      <span className='align-super text-xs'>.{floatValue}</span>
     </p>
   )
 }

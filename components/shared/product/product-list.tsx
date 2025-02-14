@@ -1,4 +1,6 @@
-type Product = {
+import ProductCard from '@/components/shared/product/product-card'
+
+export type Product = {
   name: string
   slug: string
   category: string
@@ -31,7 +33,7 @@ export default function ProductList({
       {products.length > 0 ? (
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
           {limitedProducts.map(product => (
-            <div key={product.slug}>{product.name}</div>
+            <ProductCard key={product.slug} product={product} />
           ))}
         </div>
       ) : (

@@ -8,7 +8,7 @@ export default function ProductPrice({
   className?: string
 }) {
   // Format price to 2 decimal places
-  const priceString = price.toFixed(2)
+  const priceString = price.toString(2)
 
   // Get Integer and Decimal parts
   const [intValue, floatValue] = priceString.split('.')
@@ -17,7 +17,9 @@ export default function ProductPrice({
     <p className={cn('text-2xl', className)}>
       <span className='align-super text-xs'>$</span>
       <span>{intValue}</span>
-      <span className='align-super text-xs'>.{floatValue}</span>
+      <span className='align-super text-xs'>
+        .{floatValue.length === 1 ? `${floatValue}0` : floatValue}
+      </span>
     </p>
   )
 }

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 import {
   Card,
@@ -11,13 +12,20 @@ import {
 } from '@/components/ui/card'
 import { APP_NAME } from '@/lib/constants'
 import CredentialsSignInForm from './credentials-signin-form'
+import { auth } from '@/auth'
 
 export const metadata: Metadata = {
   title: 'Sign In',
   description: 'Sign in to your account'
 }
 
-export default function Page() {
+export default async function Page() {
+  const session = await auth()
+
+  if (session) {
+    return redirect('/')
+  }
+
   return (
     <div className='mx-auto w-full max-w-md'>
       <Card>

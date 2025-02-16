@@ -15,7 +15,7 @@ export async function signInWithCredentials(
       password: formData.get('password') as string
     })
 
-    await signIn('click-up', user)
+    await signIn('credentials', user)
     return { success: true, message: 'Signed in successfully' }
   } catch (error) {
     if (isRedirectError(error)) {

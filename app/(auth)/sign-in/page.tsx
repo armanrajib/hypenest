@@ -19,11 +19,16 @@ export const metadata: Metadata = {
   description: 'Sign in to your account'
 }
 
-export default async function Page() {
+export default async function Page({
+  searchParams
+}: {
+  searchParams: Promise<{ callbackUrl: string }>
+}) {
+  const { callbackUrl } = await searchParams
   const session = await auth()
 
   if (session) {
-    return redirect('/')
+    return redirect(callbackUrl || '/')
   }
 
   return (

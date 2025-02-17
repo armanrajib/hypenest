@@ -7,6 +7,7 @@ import { signInFormSchema } from '@/lib/validators'
 import { signUpFormSchema } from '@/lib/validators'
 import { signIn, signOut } from '@/auth'
 import { isRedirectError } from 'next/dist/client/components/redirect-error'
+import { formatError } from '@/lib/utils'
 
 // Sign in the user with credientials
 export async function signInWithCredentials(
@@ -68,6 +69,6 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
       throw error
     }
 
-    return { success: false, message: 'User is not registered!' }
+    return { success: false, message: formatError(error) }
   }
 }
